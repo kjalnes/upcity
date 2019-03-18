@@ -31,24 +31,20 @@ class Collection {
 }
 
 export class Magazines extends Collection {
+    // return only the magazines that have all the interests of the subscriber
     getMagazinesBySubscriber(subscriber) {
-        return this.state.filter(magazine => {
-            const { interests } = subscriber;
-
-            // return only the magazines that have all the interests of the subscriber
-            return interests.every(interest => magazine.qualities.indexOf(interest) > -1);
-        });
+        return this.state.filter(magazine => isMatch(subscriber, magazine));
     }
 }
 
 export class Subscribers extends Collection {
+    // return the subscribers of the magazine
     getSubscribersByMagazine(magazine) {
-        return this.state.filter(subscriber => {
-            const { interests } = subscriber;
-
-            // return only the magazines that have all the interests of the subscriber
-            return interests.every(interest => magazine.qualities.indexOf(interest) > -1);
-        });
+        return this.state.filter(subscriber => isMatch(subscriber, magazine));
     }
 }
 
+function isMatch(subscriber, magazine) {
+    const { interests } = subscriber;
+    return interests.every(interest => magazine.qualities.indexOf(interest) > -1);
+}

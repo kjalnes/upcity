@@ -45,6 +45,5 @@ export class Subscribers extends Collection {
 }
 
 function isMatch(subscriber, magazine) {
-    const { interests } = subscriber;
-    return interests.every(interest => magazine.qualities.indexOf(interest) > -1);
+    return subscriber.interests.every(interest => magazine.qualities.includes(interest));
 }

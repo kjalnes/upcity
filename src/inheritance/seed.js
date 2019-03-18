@@ -1,5 +1,5 @@
 import { Magazine, Subscriber } from './models';
-import { magazineData, subscriberData } from './data';
+import { magazineData, subscriberData } from '../data';
 
 export default function seed({ MagazineCollection, SubscriberCollection }) {
     const magazines = magazineData.map(magazine => new Magazine(magazine));

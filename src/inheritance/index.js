@@ -48,10 +48,8 @@ function modifyMagazine(magazine, newQualities) {
     magazine.modifyQualities(newQualities);
 
     const newSubscribers = SubscriberCollection.getSubscribersByMagazine(magazine);
-    const uniquePrevious = previousSubscribers
-        .filter(subscriber => newSubscribers.indexOf(subscriber) === -1);
-    const uniqueNew = newSubscribers
-        .filter(subscriber => previousSubscribers.indexOf(subscriber) === -1);
+    const uniquePrevious = previousSubscribers.filter(subscriber => !newSubscribers.includes(subscriber));
+    const uniqueNew = newSubscribers.filter(subscriber => !previousSubscribers.includes(subscriber));
     const affectedSubscribers = uniquePrevious.concat(uniqueNew);
 
     return affectedSubscribers;

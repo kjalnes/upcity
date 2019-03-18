@@ -1,0 +1,77 @@
+.main-segment {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 5px;
+    flex: 3;
+}
+
+.column {
+    flex: 4;
+}
+
+.column:first-child {
+    flex: 1;
+    margin-right: 5px;
+    display: flex;
+    flex-direction: column;
+}
+
+.badges {
+    display: flex;
+    flex: 1;
+    justify-content: center;
+}
+
+.badges img {
+    max-width: 50px;
+    max-height: 50px;
+    margin: 5px;
+}
+
+
+.avatar {
+    flex: 2;
+    margin: 0 auto;
+}
+
+.avatar img {
+    margin-top: 50px;
+}
+
+.rating {
+    width: 200px;
+}
+
+.star svg {
+    width: 10px;
+}
+
+.company-card {
+    padding: 20px;
+}
+
+.company-card-section-1 {
+    display: flex;
+    padding-bottom: 20px;
+
+}
+
+.company-information {
+    flex: 3;
+}
+
+.btn-container {
+    flex: 1;
+}
+
+.custom-btn {
+    margin-top: 30px;
+    padding: 15px 30px;
+    background-color: #f7931d;
+    color: #fff;
+    border-radius: 8px;
+    font-weight: bold;
+    font-size: 14px;
+    border: none;
+}
+

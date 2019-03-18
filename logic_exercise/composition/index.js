@@ -1,8 +1,8 @@
 import {
-    Magazine,
-    Subscriber,
-    Magazines,
-    Subscribers
+    subscriberCollection,
+    magazineCollection,
+    subscriber,
+    magazine
 } from './models';
 import seed from './seed';
 
@@ -14,16 +14,8 @@ import seed from './seed';
  * 4) Testing the task's functions
  */
 
-const MagazineCollection = new Magazines();
-const SubscriberCollection = new Subscribers();
-
-seed({ MagazineCollection, SubscriberCollection });
-
-/*
- * We have two independent collections, MagazineCollection and SubscriberCollection, that are not
- * depedent on each other. This ensures that there is no coupling and no state dependencies between
- * the collections.
- */
+// seeding with mock data
+seed({ magazineCollection, subscriberCollection });
 
 /*
  * Task 1)
@@ -32,8 +24,8 @@ seed({ MagazineCollection, SubscriberCollection });
  */
 
 function addSubscriber(subscriber) {
-    SubscriberCollection.add(subscriber);
-    return MagazineCollection.getMagazinesBySubscriber(subscriber);
+    subscriberCollection.add(subscriber);
+    return magazineCollection.getMagazinesBySubscriber(subscriber);
 }
 
 /*
@@ -42,12 +34,12 @@ function addSubscriber(subscriber) {
  * ​whose subscription​ ​decision​ ​would​ ​be​ ​affected​ ​by​ ​that​ ​change.
  */
 
-function modifyMagazine(magazine, newQualities) {
-    const previousSubscribers = SubscriberCollection.getSubscribersByMagazine(magazine);
+function modifyMagazine(magazine, newState) {
+    const previousSubscribers = subscriberCollection.getSubscribersByMagazine(magazine);
 
-    magazine.modifyQualities(newQualities);
+    magazine.update(newState);
 
-    const newSubscribers = SubscriberCollection.getSubscribersByMagazine(magazine);
+    const newSubscribers = subscriberCollection.getSubscribersByMagazine(magazine);
     const uniquePrevious = previousSubscribers.filter(subscriber => !newSubscribers.includes(subscriber));
     const uniqueNew = newSubscribers.filter(subscriber => !previousSubscribers.includes(subscriber));
     const affectedSubscribers = uniquePrevious.concat(uniqueNew);
@@ -56,18 +48,22 @@ function modifyMagazine(magazine, newQualities) {
 }
 
 // Testing Task 1
-const Alex = new Subscriber({
-    name: 'Alex',
+
+const cindy = subscriber({
+    name: 'Cindy',
     interests: ['News', 'French Language']
 });
-const alexMagazines = addSubscriber(Alex);
-console.log('Magazines Alex is subscribed to: Funny French and Le Monde', alexMagazines);
+
+const cindysMagazines = addSubscriber(cindy);
+console.log('Expected magazines Cindy is subscribed to: Funny French and Le Monde', cindysMagazines);
 
 // Testing Task 2
-const TheOnion = new Magazine({
+
+const theOnion = magazine({
     name: 'The Onion',
     qualities: ['News', 'Humor']
 });
-MagazineCollection.add(TheOnion);
-const affectedSubscribers = modifyMagazine(TheOnion, ['News', 'Weekly']);
-console.log('Subscribers affected by modifying a magazine: Sam and Bob', affectedSubscribers);
+
+magazineCollection.add(theOnion);
+const affectedSubscribers = modifyMagazine(theOnion, { qualities: ['News', 'Weekly'] });
+console.log('Expected subscribers affected by modifying a magazine to be: Sam and Bob', affectedSubscribers);

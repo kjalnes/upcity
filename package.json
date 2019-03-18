@@ -4,9 +4,12 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build": "webpack",
-    "start:dev": "webpack --mode development --watch",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "buildCompositionLogic": "PARADIGM=composition webpack --config webpack.config.logic.js",
+    "watchCompositionLogic": "PARADIGM=composition webpack --mode development --watch --config webpack.config.logic.js",
+    "buildInheritanceLogic": "PARADIGM=inheritance webpack --config webpack.config.logic.js",
+    "watchInheritanceLogic": "PARADIGM=inheritance webpack --mode development --watch --config webpack.config.logic.js",
+    "buildUI": "webpack --config webpack.config.ui.js",
+    "watchUI": "webpack --mode development --watch --config webpack.config.ui.js"
   },
   "author": "",
   "license": "ISC",

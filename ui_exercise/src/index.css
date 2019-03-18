@@ -1,0 +1,29 @@
+body {
+    background-color: #F3F4F4
+}
+
+
+.container {
+    border-radius: 30px;
+    width: 100%
+
+}
+
+.grid-columns {
+    display: grid;
+    grid-template-columns: 20% 20% auto;
+    grid-column-gap: 10px;
+
+
+}
+
+.grid-rows {
+    display: grid;
+    grid-template-rows: 300px 100px 70px;
+    grid-row-gap: 5px;
+
+}
+
+.row {
+    background-color: lightgreen;
+}

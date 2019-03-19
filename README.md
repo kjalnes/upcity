@@ -14,26 +14,26 @@ files for OOP solution are under /logic_exercise/inheritance.
 
 To run code in local dev environment, run
 
-`npm watchCompositionLogic`
+`npm run watchCompositionLogic`
 
 and go to `http://localhost:8080` if not directed there automatically
 
 To create production build, run
 
-`npm buildCompositionLogic`
+`npm run buildCompositionLogic`
 
 
 ### OOP solution
 
 To run code in local dev environment, run
 
-`npm watchInheritanceLogic`
+`npm run watchInheritanceLogic`
 
 and go to `http://localhost:8080` if not directed there automatically
 
 To create production build, run
 
-`npm buildInheritanceLogic`
+`npm run buildInheritanceLogic`
 
 
 ## Instructions for UI Exercise
@@ -42,12 +42,12 @@ Files for UI exercise are in the /ui_exercise folder.
 
 To run code in local dev environment, run
 
-`npm watchUI`
+`npm run watchUI`
 
 and go to `http://localhost:8080` if not directed there automatically
 
 To create production build, run
 
-`npm buildUI`
+`npm run buildUI`
 
 Go to `http://localhost:8080` if not directed there automatically and see the result in the console.

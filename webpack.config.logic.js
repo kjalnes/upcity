@@ -1,4 +1,5 @@
-const path = require('path')
+const path = require('path');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 const paradigm = process.env.PARADIGM;
 
 module.exports = {
@@ -6,5 +7,13 @@ module.exports = {
     output: {
         filename: 'bundle.js',
         path: path.resolve(__dirname, 'distLogic')
-    }
+    },
+    devServer: {
+        contentBase: path.resolve(__dirname, 'distLogic')
+    },
+    plugins: [
+        new HtmlWebpackPlugin({
+            template: './index.html'
+        })
+    ]
 };

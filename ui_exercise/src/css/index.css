@@ -1,3 +1,8 @@
+h2 {
+    margin: 0;
+    font-weight: normal;
+}
+
 body {
     background-color: #F3F4F4;
     color: #45545f;
@@ -7,22 +12,10 @@ body {
 }
 
 .container {
-    height: 500px;
+    max-width: 800px;
     overflow: hidden;
-}
-
-.grid-rows {
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    /*display: grid;*/
-    /*grid-template-rows: 50% 30% 25%;*/
-    /*grid-row-gap: 5px;*/
-}
-
-.main-content {
+    margin: 0 auto;
     border-radius: 10px;
-    height: 100%;
     overflow: hidden;
 }
 
@@ -30,18 +23,9 @@ body {
     background-color: #fff;
 }
 
-.two {
-    flex: 2;
-    margin-bottom: 5px;
-}
-
-.three {
-    flex: 1;
-    margin-bottom: 5px;
-}
-
 .link {
     color: #4597cb;
+    cursor: pointer;
 }
 
 .italic {

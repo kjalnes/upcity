@@ -1,0 +1,25 @@
+.bottom-banner-container {
+    display: flex;
+}
+
+.bottom-banner-column-1 {
+    flex: 3;
+    padding: 7px 0 0 35px;
+}
+
+.partner-badge {
+    margin: auto;
+}
+
+.bottom-banner-column-2 {
+    flex: 4;
+}
+
+.bottom-banner-column-2 span {
+    float: right;
+    margin: 12px 50px 0 0;
+}
+
+.partner-badge svg {
+    max-width: 220px;
+}

@@ -1,22 +1,16 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import MainSegment from './MainSegment';
+import CompanyDetails from './CompanyDetails';
+import Testimonials from './Testimonials';
+import BottomBanner from './BottomBanner';
 import '../css/index.css';
 
-const App = () => {
-    return (
-        <div className='container'>
-            <div className='main-content'>
-                <div className='grid-rows'>
-                    <MainSegment />
-                    <div className='segment two'>
-                    </div>
-                    <div className='segment three'>
-                    </div>
-                </div>
-            </div>
-        </div>
-    );
-}
+const App = () => (
+    <div className='container'>
+        <CompanyDetails />
+        <Testimonials />
+        <BottomBanner />
+    </div>
+);
 
 export default App;
